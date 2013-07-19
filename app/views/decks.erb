@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Decks</h1>
-
-
+  <% Deck.all.each do |deck| %>
+   <p><% deck.name %></p>
+  <% end %>
 
 </div>

@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :decks, :through => :rounds
   
   validates :password, confirmation: true
+  validates :username, presence: true
 
   include BCrypt
 
