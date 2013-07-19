@@ -7,9 +7,14 @@ end
 
 post '/user/create' do
   puts params.inspect
-  new_user = User.create(params)
-  session[:id] = new_user.id
-  erb :decks
+  @new_user = User.create(params)
+  puts @new_user.errors.inspect
+  if @new_user.errors.any?
+    erb :index
+  else
+    session[:id] = new_user.id 
+    erb :decks
+  end
 end
 
 post '/user/login' do
