@@ -6,6 +6,7 @@ get '/' do
 end
 
 post '/user/create' do
+  puts params.inspect
   new_user = User.create(params)
   session[:id] = new_user.id
   erb :decks
