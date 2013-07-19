@@ -12,7 +12,7 @@ post '/user/create' do
   if @new_user.errors.any?
     erb :index
   else
-    session[:id] = new_user.id 
+    session[:id] = @new_user.id 
     erb :decks
   end
 end

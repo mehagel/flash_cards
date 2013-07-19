@@ -1,7 +1,8 @@
 <div class="container">
   <h1>Decks</h1>
-  <% Deck.all.each do |deck| %>
-   <p><% deck.name %></p>
-  <% end %>
-
+  <ul class="decks">
+    <% Deck.all.each do |deck| %>
+     <li><a href="/game/<%= deck.id %>"><%= deck.name %></a></li>
+    <% end %>
+  </ul>
 </div>
