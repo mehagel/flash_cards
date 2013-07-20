@@ -12,9 +12,15 @@ get '/game/:deck_id' do
 end
 
 post '/guess' do
-  p params[:round_id].class
-  guess = Guess.create(round_id: params[:round_id].to_i, attempt: params[:guess], card_id: params[:card_id].to_i )
-  p guess.errors.inspect
+  
+  guess = Guess.new(round_id: params[:round_id].to_i, attempt: params[:guess], card_id: params[:card_id].to_i )
+  guess.check_answer(params[:guess], params[:card_id])
+  guess.save
+
+  content_type :json
+  { guess: guess.correct }.to_json
+
+
   # guess = Guess.new(attempt: params[:guess])
   # guess.round = Round.find(params[:round_id].to_i)
   # guess.card = Card.find(params[:card_id].to_i)

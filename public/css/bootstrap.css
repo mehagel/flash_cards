@@ -9,6 +9,10 @@
  */
 #game_card li {
   display: none;
+  list-style-type: none;
+}
+
+#game_card ol{
 }
 
 
