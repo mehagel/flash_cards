@@ -1,0 +1,16 @@
+<div class="container">
+
+  <% if @cards %>
+    <ol id='game_card'>
+    <% @cards.each do |card| %>
+      <li><span id="<%=card.id%>"><%= card.question %></span></li>
+    <%end%>
+    </ol>
+  <%end%>
+  <form action="/guess" method="post">
+    <input type='hidden' name='round_id' value='<%=@rounds%>'>
+    <input type="text" placeholder="Your Answer" name="user_guess">
+    <button class='btn btn-primary' type='button'>Submit</button>
+  </form>
+
+</div>
