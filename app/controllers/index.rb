@@ -6,7 +6,8 @@ get '/' do
 end
 
 post '/user/create' do
-  puts params.inspect
+  p "*" * 100
+  p params
   @new_user = User.create(params)
   puts @new_user.errors.inspect
   if @new_user.errors.any?

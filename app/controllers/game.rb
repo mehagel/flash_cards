@@ -12,11 +12,12 @@ get '/game/:deck_id' do
 end
 
 post '/guess' do
-  
+  p params
   guess = Guess.new(round_id: params[:round_id].to_i, attempt: params[:guess], card_id: params[:card_id].to_i )
-  guess.check_answer(params[:guess], params[:card_id])
-  guess.save
-
+  guess.check_answer(params[:guess], params[:card_id].to_i)
+  guess.save!
+  p "8" * 80
+  p guess.correct
   content_type :json
   { guess: guess.correct }.to_json
 

@@ -9,9 +9,14 @@ class Guess < ActiveRecord::Base
   
   def check_answer(guess, card)
     card = Card.find(card)
+    p "%" * 100
     puts guess.inspect
     puts card.inspect
-    self.correct = (guess.downcase == card.answer.downcase)
+    if guess.downcase == card.answer.downcase
+      self.correct = 1
+    else
+      self.correct = 0
+    end
   end
 
 end
