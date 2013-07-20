@@ -10,6 +10,9 @@ gem 'sinatra-contrib'
 # Use Thin for our web server
 gem 'thin'
 
+# Bcrypt for password encryption
+gem 'bcrypt-ruby'
+
 gem 'activesupport'
 gem 'activerecord'
 
