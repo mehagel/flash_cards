@@ -17,6 +17,7 @@ class Guess < ActiveRecord::Base
     else
       self.correct = 0
     end
+
   end
 
 end

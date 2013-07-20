@@ -28,7 +28,12 @@
     <input type="submit" value="Make that cake!">
   </form>
 
-   <h1>Login</h1>
+  <h1>Login</h1>
+  <% if @login_error %>
+    <div id="error_explanation">
+      <p><%= @login_error %></p>
+    </div>
+  <% end %>
  <form action="/user/login" method="post">
 
     User name:<br>

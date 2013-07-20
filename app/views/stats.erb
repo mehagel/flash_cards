@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Welcome to Carrot Cake!</h1>
+  <p>Hello, flashcards!</p>
+  <h2>Your stats:</h2>
+    <% User.find(current_user).rounds.each do |round| %>
+      <p>Deck: <%=round.deck.name %></p>
+      <p>Percentage correct: <%= round.guesses.where(correct = ?round.guesses.count
+
+
+</div>

@@ -19,6 +19,15 @@ post '/user/create' do
 end
 
 post '/user/login' do
-
-  erb :decks
+  @user = User.find_by_username(params[:username])
+  if @user.class != User
+    @login_error = "Invalid username"
+    erb :index
+  elsif @user.password == params[:password]
+    session[:id] = @user.id 
+    erb :decks
+  else
+    @login_error = "Invalid password"
+    erb :index
+  end
 end

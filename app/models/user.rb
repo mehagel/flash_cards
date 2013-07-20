@@ -20,10 +20,10 @@ class User < ActiveRecord::Base
   end
 
   def self.create(params)
-      @user = User.new(username: params[:username])
-      @user.password = params[:password]
-      @user.save! if User.password_confirmation(params)
-      @user
+    @user = User.new(username: params[:username])
+    @user.password = params[:password]
+    @user.save! if User.password_confirmation(params)
+    @user
   end
 
 # Password confirmation validation

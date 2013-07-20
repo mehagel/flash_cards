@@ -29,3 +29,11 @@ card_seeds.each do |question,answer|
     deck: carrot_cake_deck
     })
 end
+
+round = Round.create(user_id:1,deck_id:1)
+
+
+round.deck.cards.count.times do |card|
+  round.guesses << Guess.create(card_id:card,attempt:"carrots")
+end
+round.save
